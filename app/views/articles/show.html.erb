@@ -1,3 +1,8 @@
 <h1>Article Detail</h1>
 <label for='title'>Title:</label><p id='title'><%= @article.title %></p>
 <label for='description'>Description</label><p id='description'><%= @article.description %></p>
+<div>
+  <div><%= link_to 'Edit', edit_article_path(@article), method: :get %></div>
+  <div><%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure' } %></div>
+  <div><%= link_to 'Article Listings', articles_path %></div>
+</div>
