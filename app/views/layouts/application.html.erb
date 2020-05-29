@@ -10,11 +10,15 @@
   </head>
 
   <body class='d-flex flex-column'>
-    <div class='container'>
+    <div class='sticky-container'>
       <%= render 'layouts/navigation'%>
-      <%= render 'layouts/messages' %> 
-      <%= yield %>
+      <div class='page-body'>
+        <div class='container'>
+          <%= render 'layouts/messages' %> 
+          <%= yield %>
+        </div>
+      </div>
+      <%= render 'layouts/footer'%>
     </div>
-    <%= render 'layouts/footer'%>
   </body>
 </html>
