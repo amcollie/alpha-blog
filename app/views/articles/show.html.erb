@@ -1,8 +1,18 @@
-<h1>Article Detail</h1>
-<label for='title'>Title:</label><p id='title'><%= @article.title %></p>
-<label for='description'>Description</label><p id='description'><%= @article.description %></p>
-<div>
-  <div><%= link_to 'Edit', edit_article_path(@article), method: :get %></div>
-  <div><%= link_to 'Delete', article_path(@article), method: :delete, data: { confirm: 'Are you sure' } %></div>
-  <div><%= link_to 'Article Listings', articles_path %></div>
+<h2 class='text-center mt-4'><%= link_to @article.title, edit_article_path(@article), class: 'text-success' %></h2>
+  <div class='row justify-content-md-center'>
+    <div class='col-8 mt-4'>
+      <div class='card text-center shadow mb-5 bg-white rounded'>
+        <div class='card-header font-italic'>
+          by Alexandros Collie
+        </div>
+        <div class='card-body'>
+          <div class='card-text text-left'><%= simple_format(@article.description) %></div>
+          <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-outline-info' %>
+          <%= link_to 'Delete', article_path(@article), class: 'btn btn-outline-danger' %>
+        </div>
+        <div class='card-footer text-muted'>
+          <small>Created <%= time_ago_in_words(@article.created_at) %> ago, edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+        </div>
+      </div>
+    </div>
 </div>

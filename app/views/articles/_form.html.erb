@@ -1,15 +1,27 @@
-<% if @article.errors.any? %>
-<h2>The following errors prevented the article from being saved.</h2>
-  <ul>
-    <% @article.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
-<%= form_with(model: @article, local: true) do |f| %>
-  <label for='title'><%= f.label :title %></label>
-  <p id='title'><%= f.text_field :title %></p>
-  <label for='description'><%= f.label :description %></label>
-  <p id='description'><%= f.text_area :description %></p>
-  <%= f.submit %>
+<div class='row justify-content-center'>
+  <div class='col-10'>
+    <%= render 'shared/errors' %>
+    <%= form_with(model: @article, class: 'shadow p-3 mb-5 bg-ligth rounded', local: true) do |f| %>
+      <div class='form-group row'>
+        <%= f.label :title, class: 'col-2 col-form-label'%>
+        <div class='col-10'>
+          <%= f.text_field :title, class: 'form-control shadow rounded', placeholder: 'Title of article' %>
+        </div>
+      </div>
+      <div class='form-group row'>
+        <%= f.label :description, class: 'col-2 col-form-label' %>
+        <div class='col-10'>
+          <%= f.text_area :description, rows:10, class: 'form-control shadow rounded', placeholder: 'Discription of article' %>
+        </div>
+      </div>
+      <div class='form-group row justify-content-center'>
+        <div class='col-md-3'>
+          <%= f.submit class: 'btn form-control btn-outline-success btn-large' %>
+        </div>
+        <div class='col-md-3'>
+          <%= link_to 'Cancel', articles_path, class: 'btn form-control btn-outline-info btn-large' %>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
