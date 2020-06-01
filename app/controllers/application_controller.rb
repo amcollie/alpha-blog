@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!current_user
   end
+
+  def require_user
+    redirect_to login_path, alert: 'Must be logged in to perform that action' unless logged_in?
+  end
 end
