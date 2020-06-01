@@ -67,15 +67,15 @@ html, body {
 }
 
 .flickr_pagination a {
-  border: 1px solid whitesmoke;
-  color: whitesmoke;
+  border: 1px solid #07d355;
+  color: #07d355;
   text-decoration: none; 
 }
 
 .flickr_pagination a:hover, .flickr_pagination a:focus {
   border-color: #07d355;
-  background: white;
-  color: #07d355; 
+  background: #07d355;
+  color: white; 
 }
 
 .flickr_pagination .page_info {
