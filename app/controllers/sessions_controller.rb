@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user_session = params[:session]
     user = User.find_by(email: user_session[:email].downcase)
     if user&.authenticate(user_session[:password])
-      session[:user_id] = user_id
+      session[:user_id] = user.id
       redirect_to user, notice:  'Logged in successfully'
     else
       flash.now[:alert] = 'There was something wrong with log in details'
